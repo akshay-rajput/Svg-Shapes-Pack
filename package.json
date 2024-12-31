@@ -1,0 +1,18 @@
+{
+  "name": "svg-shuffle-pack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "svg icons",
+    "random svg images"
+  ],
+  "author": "Akshay Rajput",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.10.2"
+  }
+}
