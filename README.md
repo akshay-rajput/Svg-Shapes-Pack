@@ -147,6 +147,7 @@ const CachedSvg = memo(function CachedSvg({ id, options }) {
 ```
 
 ### Nextjs with App router
+
 Note - Direct usage without useEffect will cause hydration mismatches. Also initialize state with empty string to avoid hydration errors.
 
 ```jsx
@@ -198,7 +199,7 @@ export function SpecificSvg({ id, options = {} }) {
 
 ## API
 
-`getRandomSvg(options: SVGOptions): string` - 
+`getRandomSvg(options: SVGOptions): string` -
 Generates a random SVG image based on the provided options.
 
 - `options (optional)`: An object containing customizable options for the SVG image generation:
