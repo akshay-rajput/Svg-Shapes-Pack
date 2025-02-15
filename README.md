@@ -237,6 +237,12 @@ Takes an optional `SVGOptions` object and returns an array of modified SVG strin
 
 ---
 
+## Credits
+
+The Svg Shapes are courtesy of [Monika Michalczyk](https://www.monikamichalczyk.com/)
+
+---
+
 ## License
 
 This project is licensed under the MIT License.
