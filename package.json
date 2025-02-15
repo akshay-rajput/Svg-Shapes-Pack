@@ -1,6 +1,6 @@
 {
   "name": "svg-shapes-pack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Random SVG shapes generator for use in apps and websites.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
