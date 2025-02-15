@@ -2,6 +2,8 @@
 
 Svg-Shapes-Pack is a utility library for getting random SVG shape icons. It allows you to generate random or customized SVG icons based on provided options.
 
+![alt text](image.png)
+
 ---
 Table of contents
 
