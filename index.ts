@@ -22,9 +22,7 @@ export interface MergedSVGOptions
       SVGOptions,
       "color" | "size" | "gradient" | "gradientStartColor" | "gradientStopColor"
     >
-  > {
-  id?: string;
-}
+  > {}
 
 export interface SingleSVGOption {
   id?: string; // ID for the SVG element
@@ -64,16 +62,50 @@ function addViewBox(svgTemplate: string): string {
   return svgTemplate;
 }
 
-function getMergedOptions(options: SVGOptions): MergedSVGOptions {
-  const mergedOptions = { ...defaultOptions, ...options };
-  Object.keys(mergedOptions).forEach((key) => {
-    if (mergedOptions[key] === undefined || mergedOptions[key] === "") {
-      mergedOptions[key] = defaultOptions[key];
-    }
-  });
+function getMergedOptions(
+  options: Partial<MergedSVGOptions>
+): MergedSVGOptions {
+  const mergedOptions = {
+    ...defaultOptions,
+    ...Object.fromEntries(
+      Object.entries(options).filter(
+        ([_, value]) => value !== undefined && value !== ""
+      )
+    ),
+  };
 
   return mergedOptions;
 }
+// function getMergedOptions(
+//   options: Partial<MergedSVGOptions>
+// ): MergedSVGOptions {
+//   // const mergedOptions = { ...defaultOptions, ...options } as MergedSVGOptions;
+//   // Object.keys(mergedOptions).forEach((key) => {
+//   //   const optionKey = key as keyof MergedSVGOptions;
+//   //   if (mergedOptions[optionKey] === undefined || mergedOptions[optionKey] === "") {
+//   //     mergedOptions[optionKey] = defaultOptions[optionKey] as typeof mergedOptions[typeof optionKey];;
+//   //   }
+//   // });
+//   const mergedOptions: MergedSVGOptions = Object.keys(
+//     defaultOptions
+//   ).reduce<MergedSVGOptions>(
+//     (acc, key) => {
+//       // const typedKey = key as keyof Partial<MergedSVGOptions>;
+//       const typedKey: string = key as keyof MergedSVGOptions;
+
+//       // Ensure the value is of the correct type before assigning
+//       acc[typedKey] =
+//         options[typedKey] === undefined || options[typedKey] === ""
+//           ? defaultOptions[typedKey]
+//           : options[typedKey];
+
+//       return acc;
+//     },
+//     { ...defaultOptions } as MergedSVGOptions
+//   );
+
+//   return mergedOptions;
+// }
 
 /**
  * Adds colors to an SVG element based on the provided options.
@@ -163,7 +195,7 @@ export const getSvgById = function (
 
       const { color, size, gradient, gradientStartColor, gradientStopColor } =
         mergedOptions;
-      let svgTemplate = svgList[options.id];
+      let svgTemplate = svgList[parseInt(options.id)];
       const { gradientDefinition, fill } = addColorsToSvg({
         color,
         gradient,
@@ -189,7 +221,7 @@ export const getSvgById = function (
 };
 
 // color pairing map for random colors
-const ColorPairingMap = {
+const ColorPairingMap: Record<string, Array<string>> = {
   red: ["red", "pink"],
   pink: ["pink", "purple"],
   purple: ["purple", "blue"],
