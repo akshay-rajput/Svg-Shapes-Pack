@@ -2,3 +2,4 @@ node_modules
 svgs-min
 dist
 *.tgz
+test.js
