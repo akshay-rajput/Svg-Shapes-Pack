@@ -247,6 +247,7 @@ export const getAllSvgs = (options?: SVGOptions): string[] => {
       const { color, size, gradient, gradientStartColor, gradientStopColor } =
         getMergedOptions({
           color: randomColor,
+          size: options?.size || 16,
           gradient: true,
           gradientStartColor: ColorPairingMap[randomColor][0],
           gradientStopColor: ColorPairingMap[randomColor][1],
