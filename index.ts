@@ -76,36 +76,6 @@ function getMergedOptions(
 
   return mergedOptions;
 }
-// function getMergedOptions(
-//   options: Partial<MergedSVGOptions>
-// ): MergedSVGOptions {
-//   // const mergedOptions = { ...defaultOptions, ...options } as MergedSVGOptions;
-//   // Object.keys(mergedOptions).forEach((key) => {
-//   //   const optionKey = key as keyof MergedSVGOptions;
-//   //   if (mergedOptions[optionKey] === undefined || mergedOptions[optionKey] === "") {
-//   //     mergedOptions[optionKey] = defaultOptions[optionKey] as typeof mergedOptions[typeof optionKey];;
-//   //   }
-//   // });
-//   const mergedOptions: MergedSVGOptions = Object.keys(
-//     defaultOptions
-//   ).reduce<MergedSVGOptions>(
-//     (acc, key) => {
-//       // const typedKey = key as keyof Partial<MergedSVGOptions>;
-//       const typedKey: string = key as keyof MergedSVGOptions;
-
-//       // Ensure the value is of the correct type before assigning
-//       acc[typedKey] =
-//         options[typedKey] === undefined || options[typedKey] === ""
-//           ? defaultOptions[typedKey]
-//           : options[typedKey];
-
-//       return acc;
-//     },
-//     { ...defaultOptions } as MergedSVGOptions
-//   );
-
-//   return mergedOptions;
-// }
 
 /**
  * Adds colors to an SVG element based on the provided options.
