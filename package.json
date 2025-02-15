@@ -1,18 +1,25 @@
 {
-  "name": "svg-shuffle-pack",
+  "name": "svg-shapes-pack",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Random SVG shapes generator for use in apps and websites.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepare": "npm run build"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "svg icons",
-    "random svg images"
+    "random svg shapes"
   ],
   "author": "Akshay Rajput",
   "license": "MIT",
-  "description": "",
   "devDependencies": {
-    "@types/node": "^22.10.2"
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
   }
 }
